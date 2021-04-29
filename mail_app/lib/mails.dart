@@ -1,29 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mail_app/mailsContents.dart';
 
 // ignore: must_be_immutable
 class Mails extends StatelessWidget {
-  String name, mail, content;
+  //String name, mail, content;
+  final int index;
+  Mails({this.index});
 
-  Mails({this.name, this.mail, this.content});
-  List<String> names = [
-    'peter parker',
-    'Bruce Banner',
-    'Loki',
-    'Captain America'
-  ];
-  List<String> mails = [
-    'theamazingspiderman@avengers.in',
-    'hulk46@avengers.in',
-    'godofdecieve@asgard.in',
-    'steverogers@avengers.in'
-  ];
-  List<String> mailContents = [
-    'Hey man just checkin\' on you.',
-    'Come to the lab ASAP.',
-    'Have you thought about what i told you?',
-    'We need to finish our talking.'
-  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +15,7 @@ class Mails extends StatelessWidget {
       height: 160.0,
       margin: EdgeInsets.symmetric(vertical: 25.0),
       decoration: BoxDecoration(
-        color: Colors.deepOrangeAccent.shade100,
+        color: Colors.amber.shade200,
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
       ),
       child: Column(
@@ -41,13 +25,13 @@ class Mails extends StatelessWidget {
             leading: CircleAvatar(
               radius: 30.0,
               backgroundImage: NetworkImage(
-                  'https://www.pngarea.com/pngs/69/6549024_contact-icons-png-contacts-black-icon-png-hd.png'),
+                  'https://img.icons8.com/bubbles/2x/important-mail.png'),
             ),
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  this.name,
+                  mailsContents.names[index],
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
@@ -59,7 +43,7 @@ class Mails extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 10.0),
                       child: Text(
-                        this.mail,
+                        mailsContents.mails[index],
                         style: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.bold,
@@ -73,7 +57,7 @@ class Mails extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(left: 10.0),
                       child: Text(
-                        this.content,
+                        mailsContents.mailContents[index],
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 15.0, fontWeight: FontWeight.bold),

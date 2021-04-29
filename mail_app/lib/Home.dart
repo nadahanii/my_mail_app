@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mail_app/Contacts.dart';
 import 'package:mail_app/mails.dart';
+import 'package:mail_app/mailsContents.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -52,11 +53,9 @@ class _HomeState extends State<Home> {
       /************************ */
       Center(
         child: ListView.builder(
-          itemCount: 4,
+          itemCount: mailsContents.mailContents.length,
           itemBuilder: (context, i) => Mails(
-            name: 'peter parker',
-            mail: 'theamazingspiderman@avengers.in',
-            content: 'Hey man just checkin\' on you.',
+            index: i,
           ),
         ),
         /* Mails(
